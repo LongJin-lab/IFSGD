@@ -64,19 +64,16 @@ def load_dataset(dataset_name):
             normalize,
         ])
         
-        # 读取ImageNet训练集
         traindataset = datasets.ImageFolder(
             root='/imagenet/train',  # replace this with your ImageNet path
             transform=train_transforms
         )
 
-        # 读取ImageNet验证集
         testdataset = datasets.ImageFolder(
             root='/imagenet/val',  # replace this with your ImageNet path
             transform=test_transforms
         )
     elif dataset_name == "cifar100":
-        # 数据预处理
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
